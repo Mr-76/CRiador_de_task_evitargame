@@ -25,7 +25,8 @@ sc - ONSTART
 
 PROGRAMS_NAMES = ['gta_sa.exe',"KingdomCome.exe","RocketLeague.exe","Titanfall2.exe",
                 "DAOrigins.exe","survarium.exe","WatchDogs2.exe","GTA5.exe",
-                "DyingLightGame.exe","Dauntless-Win64-Shipping.exe","metro.exe","vermintide2.exe"]
+                "DyingLightGame.exe","Dauntless-Win64-Shipping.exe","metro.exe","vermintide2.exe",
+                "SniperElite4_DX11.exe","DeusEx.exe"]
 
 
 print(TODAY_DATE.strftime("%a")) # pegando o nome do dia de hj
