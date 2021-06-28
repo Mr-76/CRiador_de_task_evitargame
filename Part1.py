@@ -1,47 +1,32 @@
 import subprocess
 import os
 import sys
-import time
 
-MODULOS = ("pip install datetime psutil")   
+MODULOS = ("pip install datetime psutil")   #instala os modulos que não vem com python
 
-comandLineCode =  subprocess.Popen(MODULOS)
+comandLineCode =  subprocess.Popen(MODULOS) #instalando os modulos
 
-cwd = os.getcwd()  #script path
-
-
-print(sys.executable.replace('python.exe', 'pythonw.exe'))
-
-exePath = sys.executable.replace('python.exe', 'pythonw.exe')
+local = os.getcwd()  #Obtendo o local onde esta esse script
 
 
-LINHA_SCRIPT_USAR = ( (exePath) + " " + r'"{}\SETUP.py"'.format(cwd) )
+
+exePath = sys.executable.replace('python.exe', 'pythonw.exe') #obtendo o local do execu                                                             tavel python e trocando pa                                                              ra pythonw.exe pois esse                                                        não abre um terminal quando roda
 
 
-nome = "PART2.bat"
-f = open(nome, "w")
-f.write(LINHA_SCRIPT_USAR)
-f.close()
+linhaScriptUsar = ((exePath) + " " + r'"{}\SETUP.py"'.format(local)) # criando string comlocal "path" do script com setup
 
-time.sleep(5)
+
+NOME = "PART2.bat" #criando arquivo bat com as linhas de codigo anteriores
+with open(NOME,"w") as ARQUIVO_BAT1
+    ARQUIVO_BAT1.write(linhaScriptUsar)
+
+
 
 #####
-cwd = os.getcwd()  #script path
-print(cwd)
 
-
-#C:/Users/vluca/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0/python.exe "Z:\python\Untitled-1.py"
-print(sys.executable.replace('python.exe', 'pythonw.exe'))
-
-exePath = sys.executable.replace('python.exe', 'pythonw.exe')
-
-
-LINHA_SCRIPT_USAR = ( (exePath) + " " + r'"{}\teste_task_grande.pyw"'.format(cwd) )
-
-print(LINHA_SCRIPT_USAR)#inside bat file
-
-nome = "Executavel_game.bat"
-f = open(nome, "w")
-f.write(LINHA_SCRIPT_USAR)
-f.close()
-
+linhaScriptUsar = ((exePath) + " " + r'"{}\teste_task_grande.pyw"'.format(local))
+#essa outra linha faz referencia a execução do codigo pelo windows
+NOME = "Executavel_game.bat"
+with open(NOME,"w") as ARQUIVO_BAT2
+    ARQUIVO_BAT2.write(linhaScriptUsar)
+quit()

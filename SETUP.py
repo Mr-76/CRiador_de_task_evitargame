@@ -1,36 +1,29 @@
 #Adiciona a task ao windows
-
 import subprocess #usar o terminal 
 import os
-import psutil
 import sys
 import time
 from datetime import datetime
+import psutil
+
+
+local = os.getcwd()  #local do script 
 
 
 
-cwd = os.getcwd()  #script path
+NOME = "Executavel_game.bat"
 
-print(cwd)
+scriptPath = r'"{}\{}"'.format(local,NOME) #colocar isso no task
 
-#need to read a file withj the path
-
-nome = "Executavel_game.bat"
-
-scriptPath = r'"{}\{}"'.format(cwd,nome) #colocar isso no task
-
-print(scriptPath,"path")
-
-#rodar 1 vez 
-
-
-#e tb comando de criaçao da task
+#Criando as task no windows cmd
 PRIMEIRO_COD_TASK = (r'SCHTASKS /CREATE /SC ONLOGON /TN "GAME_EVITAR" /TR ')
 SEGUNDO_COD_TASK = scriptPath
-print(SEGUNDO_COD_TASK)
 
 FINAL_COD_TASK = PRIMEIRO_COD_TASK+SEGUNDO_COD_TASK
 
-print(FINAL_COD_TASK)
+subprocess.Popen(FINAL_COD_TASK,shell = True) #abre o terminal e coloca a task
 
-#subprocess.Popen(FINAL_COD_TASK,shell = True)
+
+quit()
+
+
