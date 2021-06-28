@@ -7,10 +7,12 @@ from datetime import datetime
 import psutil
 
 
-local = os.getcwd()  #local do script 
+with open("thepath.txt","r") as path:
+    local = path.read()
 
+print(local)
 
-
+time.sleep(100000)
 NOME = "Executavel_game.bat"
 
 scriptPath = r'"{}\{}"'.format(local,NOME) #colocar isso no task
@@ -24,6 +26,5 @@ FINAL_COD_TASK = PRIMEIRO_COD_TASK+SEGUNDO_COD_TASK
 subprocess.Popen(FINAL_COD_TASK,shell = True) #abre o terminal e coloca a task
 
 
-quit()
 
 
