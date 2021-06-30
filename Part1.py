@@ -1,48 +1,30 @@
+#cria dois arquivos bat O STUP.bat que cria a task, e executavel_game que é executado pelo windwos task manager
 import subprocess
 import os
 import sys
-import time
 
 MODULOS = ("pip install datetime psutil")   
 
 comandLineCode =  subprocess.Popen(MODULOS)
 
-cwd = os.getcwd()  #script path
+localScriptCmd = os.getcwd()#local onde o script esta sendo rodado pleo terminal
 
 
-print(sys.executable.replace('python.exe', 'pythonw.exe'))
 
-exePath = sys.executable.replace('python.exe', 'pythonw.exe')
+exePath = sys.executable.replace('python.exe', 'pythonw.exe') # mudar para python sem terminal
 
 
-LINHA_SCRIPT_USAR = ( (exePath) + " " + r'"{}\STUP.py"'.format(cwd) )
-print(LINHA_SCRIPT_USAR)
+LINHA_SCRIPT_USAR = ((exePath) + " " + r'"{}\STUP.py"'.format(localScriptCmd)) # criando o path para executar
+                                                                    #o script STUP.py
 
 
 nome = "PARTT2.bat"
-f = open(nome, "w")
-f.write(LINHA_SCRIPT_USAR)
-f.close()
+with open(nome,"w") as batP2:
+    batP2.write(LINHA_SCRIPT_USAR)
 
-time.sleep(5)
-
-#####
-cwd = os.getcwd()  #script path
-print(cwd)
-
-
-#C:/Users/vluca/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0/python.exe "Z:\python\Untitled-1.py"
-print(sys.executable.replace('python.exe', 'pythonw.exe'))
-
-exePath = sys.executable.replace('python.exe', 'pythonw.exe')
-
-
-LINHA_SCRIPT_USAR = ( (exePath) + " " + r'"{}\teste_task_grande.pyw"'.format(cwd) )
-
-print(LINHA_SCRIPT_USAR)#inside bat file
+LINHA_SCRIPT_USAR = ( (exePath) + " " + r'"{}\teste_task_grande.pyw"'.format(localScriptCmd))#segundo script bat
 
 nome = "Executavel_game.bat"
-f = open(nome, "w")
-f.write(LINHA_SCRIPT_USAR)
-f.close()
-
+with open(nome,"w") as BATex:
+    BATex.write(LINHA_SCRIPT_USAR)
+    
